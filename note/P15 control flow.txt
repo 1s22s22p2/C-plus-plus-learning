@@ -1,0 +1,3 @@
+continue:go to the next interation
+break:get out of the loop
+return:get out of the function

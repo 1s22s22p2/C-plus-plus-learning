@@ -1,0 +1,10 @@
+﻿  main.cpp
+D:\WORKS\new\C++\P57 Statci Arrays\P57 Statci Arrays\main.cpp(26,11): warning C4834: 放弃具有 "nodiscard" 属性的函数的返回值
+D:\WORKS\new\C++\P57 Statci Arrays\P57 Statci Arrays\main.cpp(9,20): warning C4018: “<”: 有符号/无符号不匹配
+D:\WORKS\new\C++\P57 Statci Arrays\P57 Statci Arrays\main.cpp(27): message : 查看对正在编译的函数 模板 实例化“void PrintArray<5>(const std::array<int,5> &)”的引用
+  正在生成代码
+  1 of 6 functions (16.7%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  P57 Statci Arrays.vcxproj -> D:\WORKS\new\C++\P57 Statci Arrays\bin\Win32\Release\P57 Statci Arrays.exe

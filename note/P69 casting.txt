@@ -1,0 +1,27 @@
+类型转换
+显式转换隐式转换
+
+#include <iostream>
+
+#define Log(x)	std::cout<<x<<std::endl;
+
+int main()
+{
+	//c语言的方式
+	double value = 5.25;
+	int a = value;            //这里有一个隐式转换
+	double b = (int)value + 5.3;
+	double c = value + 5.3;
+	std::cout << "a=" << a << std::endl;
+	std::cout << "b=" << b << std::endl;
+	std::cout << "c=" << c << std::endl;
+	//c++的方式
+	double s = static_cast<int>(value) + 5.3;        
+	//static_cast静态类型转换，可能还作一些其他的编译时检查，看看这种转换是否真的可能
+	//reinterpret_cast意思时把这段内存重新解释为别的东西
+	//const_const添加或移除const，便于我们查找移除const的地方
+	//dynamic可以用来检查转换是否成功
+
+
+	std::cin.get();
+}

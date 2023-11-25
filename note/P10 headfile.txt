@@ -1,0 +1,35 @@
+#include <iostream>         include in one package
+#include "log.h"                 defined myself or prepared before
+#define a 1000                   define as 1000
+#define log(x) std::cout<<x<<std::endl;            paste the sentence after                    
+
+it is used to paste the file into you program
+so if it paste a function which you have defined before you may get warned
+but if your program have the same headfile before the headfile behind won't make sense thanks to #pragma once
+
+#include <iostream>
+#include "Log.h"
+#include "Log.h"
+#include "abc.h"
+
+void Log(const char* message);
+
+int main()
+{
+	Log("hello world" );
+	std::cin.get();
+	Log("hello world");
+
+}
+
+
+#pragma once
+void Log(const char* message);
+
+#pragma once
+#include<iostream>
+
+void Log(const char* message)
+{
+	std::cout << message << std::endl;
+}

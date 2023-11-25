@@ -1,0 +1,14 @@
+int                    4 bytes =32bits   with sign
+unsigned int    4 bytes =32bits
+char                 1 byte                   char  a=65            char a='A'
+short                2 bytes
+long                 4 bytes
+long long         4 bytes
+double                                         double a=5.5
+float                                             float     a=5.5f       float a=5.5
+bool                 1 byte                  bool     a=true      in fact it occupies 1 bit
+
+
+cout<<sizeof(bool)<<endl;
+result:1
+

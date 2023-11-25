@@ -1,0 +1,6 @@
+﻿  main.cpp
+  static.cpp
+  正在生成代码...
+  LINK : 没有找到 D:\WORKS\new\C++\P21 Static outside the class\bin\Win32\Debug\P21 Static outside the class.exe 或上一个增量链接没有生成它；正在执行完全链接
+main.obj : error LNK2005: "int s_Variable" (?s_Variable@@3HA) 已经在 static.obj 中定义
+D:\WORKS\new\C++\P21 Static outside the class\bin\Win32\Debug\P21 Static outside the class.exe : fatal error LNK1169: 找到一个或多个多重定义的符号

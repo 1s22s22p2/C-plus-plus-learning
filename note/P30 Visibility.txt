@@ -1,0 +1,40 @@
+可见性是面向对象中的概念，它是指一个类中成员或者方法是否可见
+C++中有三大可见修饰符（访问修饰符）：private，protectd，public
+private：只有该类和该类的友元中的可以访问这个私有成员
+public:都可以访问
+pritected:可见性大于private小于public，这个类以及它的所有派生类都可以访问到这些成员，但是在类外无法直接访问
+
+#include <iostream>
+
+#define Log(x)	std::cout<<x<<std::endl;
+
+class Entity
+{
+	int x, y;
+protected:
+	int a, b;
+public:
+	Entity()
+	{
+		x = 0, y = 0;
+		a = 0, b = 0;
+	}
+};
+
+class Player :public Entity
+{
+public:
+	Player()
+	{
+		/*x = 0, y = 0;*/                    //只有Entity以及它的友元可以访问x,y
+		a = 0, b = 0;
+	}
+};
+
+int main()
+{
+	Entity e;
+	/*e.x = 0;*/                           //无法访问
+	/*e.a=0,e.b=0*/                        //无法访问
+	std::cin.get();
+}

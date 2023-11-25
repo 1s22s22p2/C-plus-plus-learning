@@ -1,0 +1,10 @@
+to run F5 ctrl F5
+to bulid ctrl F7
+to Debugger F10 F11
+to set a breakpoint F9
+
+to choice all ctrl A
+to choice one scentence home+shift end or end+shift home
+to cut ctrl X
+to copy ctrl C
+to paste ctrl V

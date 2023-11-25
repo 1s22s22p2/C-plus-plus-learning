@@ -1,0 +1,47 @@
+#include <iostream>
+#include <Vector>     //用动态数组必须要标注这个头文件
+
+#define Log(x)	std::cout<<x<<std::endl;
+
+struct Vertex
+{
+	float x, y, z;
+};
+
+std::ostream& operator<<(std::ostream& stream, const Vertex& vertex)
+{
+	stream << vertex.x << ',' << vertex.y << ',' << vertex.z;
+	return stream;
+}
+
+void finction(const std::vector<Vertex>& vertices )  //函数调用
+{
+}
+
+int main()
+{
+	/*Vertex* vertices = new Vertex[5];
+	vertices[10];*/  //无法使用超过十的部分
+	//如果没有动态数组，那么遇到不确定数目的变量只能定义尽可能大的数组，但是这样会浪费内存
+	std::vector<Vertex> vertices;                    //在java中不能传入基本类型如int要输入Integer，但是C++直接输入int就可以了
+	std::vector<Vertex*> vertices1;                   //注意两者区别，一个是将Vertex在一行中存储，另一个是存储vertex指针
+	vertices.push_back({1,2,3});
+	vertices.push_back({ 4,5,6 });
+	
+	for (int i = 0; (unsigned)i < vertices.size(); i++)   //等号两边必须为unsigned否则会警告
+	{
+		std::cout << vertices[i] << std::endl;
+	}
+
+	for (const Vertex& v:vertices)
+	{
+		std::cout << v << std::endl;
+	}
+
+	vertices.clear();  //清除vertex列表
+	vertices.erase(vertices.begin() + 1);      //其中函数参数是迭代器，所以不拿直接填具体数字，例如要将第二个元素删除，那么要填begin（）+1
+
+	std::cin.get();
+}
+
+//vector通常很慢

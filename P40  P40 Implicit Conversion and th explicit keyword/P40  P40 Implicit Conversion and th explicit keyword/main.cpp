@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+
+#define Log(x)	std::cout<<x<<std::endl;
+
+class Entity
+{
+private:
+	std::string m_Name;
+	int m_Age;
+public:
+	/*explicit*/ Entity(const std::string& name)
+		:m_Name(name),m_Age(-1) {}
+	/*explicit*/ Entity(int age)
+		:m_Name("Unknown"), m_Age(age) {}
+};
+
+void PrintEntity(const Entity& entity)
+{
+	//Printint
+}
+
+int main()
+{
+	PrintEntity(22);
+	PrintEntity((std::string)"Cherno");
+
+	Entity a("cherno");             //加了explicit后就只能通过构造函数来构造对象了
+	Entity b(22);
+	Entity c = (std::string)"a";             //"a"是个char数组不是string
+	//先隐式转化为string在隐式传输，共两次
+	Entity d = 22;                  //隐式转换或者说隐式构造函数
+	//一次只允许做一次隐式转换
+	std::cin.get();
+}
+
+//写低级封装是可以用explicit，可以防止偶然转换和性能上的问题以及bug

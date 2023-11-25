@@ -1,0 +1,7 @@
+show all files
+new a floder
+new a task
+
+project 
+output directory:$(SolutionDir)bin\$(Platform)\$(Configuration)\
+intermedaite directory:$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\

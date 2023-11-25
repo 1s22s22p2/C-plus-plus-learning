@@ -1,0 +1,21 @@
+if
+if-else
+
+because of the move,if statement will make our program slower
+comparisionresult=a==5
+if(comparisionresult==true)
+if(comparisionresult)
+if (true)
+if (1)
+if(ptr)(when the ptr is nullptr it is 0)
+
+to distinguish
+if
+else if
+else 
+
+if
+if
+else
+
+ctrl G move to the explaination of the program

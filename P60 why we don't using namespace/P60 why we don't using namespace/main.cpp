@@ -1,0 +1,37 @@
+#include <iostream>
+
+#define Log(x)	std::cout<<x<<std::endl
+
+using namespace std;
+
+namespace apple
+{
+	void print(const::string text)
+	{
+		Log(text);
+	}
+}
+
+namespace orange
+{
+	void print(const char* text)
+	{
+		std::string temp = text;
+		std::reverse(temp.begin(), temp.end());    //将temp倒过来
+		Log(temp);
+	}
+}
+
+using namespace apple;
+using namespace orange;
+
+
+int main()
+{
+	print("cherno");        //cherno实际上是const char所以会调用orange中的函数  //这不是编译错误，这可以正常运行，而我们想要修改是又难以发现
+
+	std::cin.get();
+}
+
+//千万不要在头文件中使用命名空间，否则我们甚至连会包含什么都不知道
+//如果只是在函数中使用还可以，因为超出作用域后就不使用这个命名空间了

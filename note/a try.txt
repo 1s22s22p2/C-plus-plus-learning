@@ -1,0 +1,14 @@
+#include <iostream>
+#include <vector>
+
+#define Log(x)	std::cout<<x<<std::endl;
+
+int main()
+{
+	std::vector<int> e = {1,2,3};
+	e.push_back(4);
+	Log(e[2]);
+	e.erase(e.begin());
+	Log(e[2])
+	std::cin.get();
+}

@@ -1,0 +1,46 @@
+构造函数：用于设置变量，初始化工作
+
+#include <iostream>
+
+#define Log(x)	std::cout<<x<<std::endl;
+
+class Entity
+{
+public:
+	float x, y;
+
+	Entity() = delete;       //C++自带了构造函数如果不想用可以delete
+
+	Entity()
+	{
+		x = 0.0f;
+		y = 0.0f;
+	}                 //在创造一个实例时自动运行，名字必须时Entity
+
+	Entity(float xx,float yy)      //可以有多个函数但是变量必须不同
+	{
+		x = xx;
+		y = yy;
+	}
+
+	/*void Init()
+	{
+		x = 0.0f;
+		y = 0.0f;
+	}*/
+
+	void Print()
+	{
+		std::cout << x << ',' << y << std::endl;
+	}
+};
+
+int main()
+{
+	Entity e;
+	Entity e1(10.0f, 5.0f);
+	/*e.Init();*/
+	e.Print();
+	e1.Print();
+	std::cin.get();
+}

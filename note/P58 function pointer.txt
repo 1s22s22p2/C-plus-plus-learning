@@ -1,0 +1,51 @@
+将函数赋值给一个变量的方法
+
+#include <iostream>
+#include <vector>
+
+#define Log(x)	std::cout<<x<<std::endl
+
+void HelloWorld(int a)
+{
+	Log("Hello World value:"<<a);
+}
+
+void PrintValue(int value)
+{
+	Log(value);
+}
+
+void ForEach(const std::vector<int>& values,void(*function)(int))   //控制对value作什么操作
+{
+	for (int value : values)
+	{
+		function(value);
+	}
+}
+
+int main()
+{
+	{
+		/*auto function = HelloWorld();*/   //这个等号右边是调用函数所以auto无法判断是什么类型
+		auto function = HelloWorld;         //这样就是在获取函数指针，等价auto function = &HelloWorld; 
+		/*void(*function)(); */            //auto的实际类型是void（*）（）
+		//&HelloWorld是在可执行文件中找到hello world函数，得到这个cpu指令的内存地址
+		//不用&也可以是隐式转换
+		function(1);
+		function(2);
+
+		void(*cherno)(int) = HelloWorld;
+		cherno(3);
+		cherno(4);
+
+		typedef void(*HelloWorldFunction)(int);   //注意有2对括号
+		HelloWorldFunction zzz = HelloWorld;
+		zzz(5);
+	}
+
+	std::vector<int> vector = {1,5,4,2,3};
+	ForEach(vector,PrintValue);
+	ForEach(vector, [](int value) {Log("Value:" << value); });
+
+	std::cin.get();
+}

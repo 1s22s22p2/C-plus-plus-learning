@@ -1,0 +1,37 @@
+#include <iostream>
+
+#define Log(x)	std::cout<<x<<std::endl;
+
+class Singleton
+{
+//private:
+//	static Singleton* s_Instance;
+public:
+	static Singleton& Get() 
+	{
+		static Singleton s_Instance;//与上面被注释部分一个效果，如果不使用static，那么到}instance就会被销毁，那么函数的&引用就不成立
+		return s_Instance; 
+	}
+	void Hello() {}
+};
+
+//Singleton* Singleton::s_Instance = nullptr;
+
+//int i = 0;  全局变量
+
+void Function()
+{
+	static int i = 0;
+	i++;                           //每调用一次函数，i+1
+	Log(i);
+}
+
+int main()
+{
+	Function();
+	//i=10   对全局变量有影响但是对Local static变量无影响
+	Function();
+	Function();
+	Singleton::Get().Hello();
+	std::cin.get();
+}

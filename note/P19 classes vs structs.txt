@@ -1,0 +1,19 @@
+classes 默认是私有的，要注上public
+structs  默认是公有的，要注上private，C中由struct C++为了兼容也继承了structs，如果没有structs可以用#define struct class
+一般习惯如果是只有变量以及其基本运算那么就用struct
+struct Vec2
+{
+    float x,y;            //只是为了将两个变量组合
+    
+    void add(const Vec2& other)       //只是操纵这些变量的函数
+    {
+         x+=other.x;
+         y+=other.y;   
+    }
+}
+
+
+此外继承最好不要用在struct上，因为继承又增加了另外一层的复杂性，而我希望struct仅是数据的结构体
+
+
+总之：用结构体来表示一些数据，但如果想要更多功能用类

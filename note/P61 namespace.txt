@@ -1,0 +1,10 @@
+命名空间
+类本身也是一个命名空间，所以我们在运用类中的函数时要加::
+如果想要用命名空间里面的函数也可以在前面声明，using namespace apple::print_again()这样就可以只引入命名空间中的一个函数
+如果觉得不断输入std::string之类的太麻烦
+可以写namespace s=std;然后使用s::string
+
+命名空间可以嵌套定义然后调用其中函数时可以apple::function::print();
+也可以使用单独使用一个命名空间内部的命名空间using namespace apple::function
+
+命名空间在一个作用域中被声明那么我们只能在这个作用域中使用这个命名空间

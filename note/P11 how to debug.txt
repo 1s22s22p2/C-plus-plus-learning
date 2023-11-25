@@ -1,0 +1,15 @@
+1. breakpoint
+fast key F9 
+step into F11
+step over F10
+step out shift F11 
+
+to sure it is in the debug mode
+
+2. look at the memories
+look at our memory Debug-windows-memory-memory1
+if a variable is uninitialized ,it is 0cccccccc,which can be find in memory or watch
+
+
+C        compile error
+lnk     link error

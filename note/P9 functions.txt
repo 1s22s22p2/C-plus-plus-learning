@@ -1,0 +1,7 @@
+int multiply()                void
+{
+return 5*8
+}
+
+
+function will make my program slower but cleaner

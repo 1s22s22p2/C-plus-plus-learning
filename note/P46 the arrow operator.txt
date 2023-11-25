@@ -1,0 +1,79 @@
+#include <iostream>
+
+#define Log(x)	std::cout<<x<<std::endl;
+
+struct Vector3
+{
+	float x,y,z;
+};
+
+class Entity
+{
+public:
+	int x;
+public:
+	void Print() const
+	{
+		std::cout << "Hello！" << std::endl;
+	}
+};
+
+class ScopedPtr
+{
+private:
+	Entity* m_obj;
+public:
+	ScopedPtr(Entity* entity)
+		:m_obj(entity) {}
+
+	~ScopedPtr()
+	{
+		delete m_obj;
+	}
+
+	Entity* GetObject()
+	{
+		return m_obj;
+	}
+
+	Entity* operator->()   //没有参数,因为只有自身调用的这个函数
+	{
+		return m_obj;
+	}
+
+	const Entity* operator->() const
+	{
+		return m_obj;
+	}
+
+};
+
+int main()
+{
+	{
+		Entity e;
+		e.Print();
+
+		Entity* ptr = &e;
+		/*ptr.ptinr();*/   //报错因为ptr实际上是个指针，无法调用这个函数
+		//Entity& entity = *ptr;
+		//entity.Print();     //只能通过逆向引用来打印,上述两行代码可以化简为如下
+		(*ptr).Print();
+		ptr->Print();        //进一步可以换为箭头
+		ptr->x = 2;          //也可以调用变量
+	}
+	{
+		ScopedPtr entity = new Entity();
+		/*entity.GetObject()->Print();*/   //如果想要正常地entity->Print()就要重载运算符
+		entity->Print();
+
+		const ScopedPtr entity1 = new Entity();
+		entity1->Print();
+	}
+
+	//可以通过箭头运算符得到位移量，以及内存的布局
+	int offset=(int)&((Vector3*)0)->x;   //0也可以换成nullptr
+	std::cout << offset << std::endl;
+
+	std::cin.get();
+}
